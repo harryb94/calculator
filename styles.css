@@ -21,7 +21,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-grow: 1;
 
 }
 
@@ -35,29 +34,40 @@ header {
 
 #buttons{
     display: flex;
-    flex-grow: 1;
-    justify-content: stretch;
-    align-self: stretch;
 }
 
 #numbers{
     display: flex;
-    flex-grow: 1;
-    justify-content: stretch;
-    flex-wrap: 1;
+    width: 400px;
+    height: 400px;
+    flex-wrap:wrap;
+    justify-content: flex-end;
 }
 
 #functions{
     display: flex;
-    flex-grow: 1;
-    justify-content: stretch;
     flex-direction: column;
+    height: 400px;
 }
 
 button {
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+}
+
+#functions button {
     display: flex;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+}
+
+#numbers button{
+    display: flex;
+    width: 120px;
+    height: 120px;
+    margin: 5px;
 }
 
 footer {
