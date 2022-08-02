@@ -14,11 +14,6 @@ header {
     margin-bottom: 15px;
 }
 
-#container{
-    display: flex;
-    height: 700px;
-    width: 500px;
-}
 
 #calcBody {
     display: flex;
