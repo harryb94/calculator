@@ -15,10 +15,14 @@ number.addEventListener('click', () => {
 
 let dot = document.querySelector('#dot');
 dot.addEventListener('click', () => {
+    if (display.includes('.'))
+    {return}
+    else{
     display.push(dot.className);
     console.log(display);
     console.log(display.join(''));
     screen.innerHTML = display.join('');
+    }
 }
 
 )
