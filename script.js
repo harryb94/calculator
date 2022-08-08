@@ -3,7 +3,7 @@ let screen = document.getElementById('screen');
 
 
 
-let numbers = document.querySelectorAll('button');
+let numbers = document.querySelectorAll('#number');
 numbers.forEach((number) => { 
 number.addEventListener('click', () => {
         display.push(parseInt(number.className));
