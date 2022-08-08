@@ -12,3 +12,14 @@ number.addEventListener('click', () => {
         screen.innerHTML = display.join('');
     })
 });
+
+let dot = document.querySelector('#dot');
+dot.addEventListener('click', () => {
+    display.push(dot.className);
+    console.log(display);
+    console.log(display.join(''));
+    screen.innerHTML = display.join('');
+}
+
+)
+
