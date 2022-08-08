@@ -28,7 +28,7 @@ dot.addEventListener('click', () => {
     }
 });
 
-//When a function button is pressed eg. x / = - 
+//When a function button is pressed eg. x / = -     
 let functionButton = document.querySelectorAll('#function');
 functionButton.forEach((func) => {
     func.addEventListener('click', () => {
