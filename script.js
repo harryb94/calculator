@@ -3,8 +3,6 @@ let screen = document.getElementById('currentDisplay');
 let displayHistory = '';
 let history = document.getElementById('history');
 let result;
-//let funcProcess = '*';
-
 
 
 //When a number is pressed
@@ -42,7 +40,6 @@ functionButton.forEach((func) => {
 })
 
 function funcPress() {
-            //calculate(display,displayHistory,funcProcess);
             console.log('display ' + display);
             displayHistory = display;
             console.log('history ' + displayHistory);
@@ -51,6 +48,7 @@ function funcPress() {
             screen.innerHTML = display;
             console.log(funcProcess);
 }
+
 //When equals button is pressed
 let equalsButton = document.querySelector('#equals')
 equalsButton.addEventListener('click', () => {
@@ -60,12 +58,7 @@ equalsButton.addEventListener('click', () => {
 //When clear button is pressed
 let clearButton = document.querySelector('#clear')
 clearButton.addEventListener('click', () => {
-    display = "";
-    displayHistory = '';
-    result = '';
-    funcProcess = '';
-    screen.innerHTML = display;
-    history.innerHTML = displayHistory + ' ' + funcProcess;
+    clear();
 })
 
 //When delete button is pressed
@@ -75,7 +68,14 @@ deleteButton.addEventListener('click', () => {
     screen.innerHTML = display;
 })
 
-
+function clear(){
+    display = "";
+    displayHistory = '';
+    result = '';
+    funcProcess = '';
+    screen.innerHTML = display;
+    history.innerHTML = displayHistory + ' ' + funcProcess;
+}
 
 function calculate() {
     if (funcProcess == '*'){
@@ -92,9 +92,15 @@ function calculate() {
     }
 
     if (funcProcess == '/'){
+        if (display == 0){
+            result = 'Cannot divide by zero';
+            screen.innerHTML = result;
+        }
+        else {
         result = parseFloat(displayHistory) / (parseFloat(display)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
         display = result;
+        }
     }
 
     if (funcProcess == '-'){
@@ -102,7 +108,6 @@ function calculate() {
         screen.innerHTML = result;    
         display = result; 
     }
-
     }
 
 
