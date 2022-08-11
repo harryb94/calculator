@@ -68,6 +68,14 @@ clearButton.addEventListener('click', () => {
     history.innerHTML = displayHistory + ' ' + funcProcess;
 })
 
+//When delete button is pressed
+let deleteButton = document.querySelector('#delete')
+deleteButton.addEventListener('click', () => {
+    display = display.slice(0,-1);
+    screen.innerHTML = display;
+})
+
+
 
 function calculate() {
     if (funcProcess == '*'){
