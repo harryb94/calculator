@@ -2,6 +2,7 @@ let display = '';
 let screen = document.getElementById('currentDisplay');
 let displayHistory = '';
 let history = document.getElementById('history');
+let result;
 //let funcProcess = '*';
 
 
@@ -36,41 +37,50 @@ let functionButton = document.querySelectorAll('#function');
 functionButton.forEach((func) => {
     func.addEventListener('click', () => {
         funcProcess = func.className;   
-        calculate(display,displayHistory,funcProcess);
-        displayHistory = display;
-        console.log('history ' + displayHistory);
-        history.innerHTML = displayHistory;
-        display = '';
-        screen.innerHTML = display;
-        console.log(funcProcess);
+        funcPress(display,displayHistory);
+
     })
 })
 
+function funcPress() {
+            //calculate(display,displayHistory,funcProcess);
+            console.log('display ' + display);
+            displayHistory = display;
+            console.log('history ' + displayHistory);
+            history.innerHTML = displayHistory + ' ' + funcProcess;
+            display = '';
+            screen.innerHTML = display;
+            console.log(funcProcess);
+}
+
 let equalsButton = document.querySelector('#equals')
 equalsButton.addEventListener('click', () => {
-    calculate(display,displayHistory,funcProcess);
+    calculate();
 })
 
-function calculate(display,displayHistory,funcProcess) {
+function calculate() {
     if (funcProcess == '*'){
-        display = (parseInt(display.join('')) * parseInt(displayHistory));
-        screen.innerHTML = display;
+        result = (parseInt(display) * parseInt(displayHistory));
+        screen.innerHTML = result;
+        display = result;
         }
 
     if (funcProcess == '+'){
-        display = (parseInt(display) + parseInt(displayHistory));
-        screen.innerHTML = display;
-        console.log('display ' + display);
+        result = (parseInt(display) + parseInt(displayHistory));
+        screen.innerHTML = result;
+        display = result;
     }
 
     if (funcProcess == '/'){
-        display = (parseInt(display.join('')) / parseInt(displayHistory));
-        screen.innerHTML = display;
+        result = parseInt(displayHistory) / (parseInt(display));
+        screen.innerHTML = result;
+        display = result;
     }
 
     if (funcProcess == '-'){
-        display = (parseInt(display.join('')) - parseInt(displayHistory));
-        screen.innerHTML = display;        
+        result = (parseInt(displayHistory) - parseInt(display));
+        screen.innerHTML = result;    
+        display = result; 
     }
 
     }
