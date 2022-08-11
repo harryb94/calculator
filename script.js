@@ -59,26 +59,26 @@ equalsButton.addEventListener('click', () => {
 
 function calculate() {
     if (funcProcess == '*'){
-        result = (parseFloat(display) * parseFloat(displayHistory)).toFixed(2);
+        result = (parseFloat(display) * parseFloat(displayHistory)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
         display = result;
         }
 
     if (funcProcess == '+'){
-        result = (parseFloat(display) + parseFloat(displayHistory)).toFixed(2);
+        result = (parseFloat(display) + parseFloat(displayHistory)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
         display = result;
         console.log('result ' + result);
     }
 
     if (funcProcess == '/'){
-        result = parseFloat(displayHistory) / (parseFloat(display)).toFixed(2);
+        result = parseFloat(displayHistory) / (parseFloat(display)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
         display = result;
     }
 
     if (funcProcess == '-'){
-        result = (parseFloat(displayHistory) - parseFloat(display)).toFixed(2);
+        result = (parseFloat(displayHistory) - parseFloat(display)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;    
         display = result; 
     }
