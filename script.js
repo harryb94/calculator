@@ -51,11 +51,23 @@ function funcPress() {
             screen.innerHTML = display;
             console.log(funcProcess);
 }
-
+//When equals button is pressed
 let equalsButton = document.querySelector('#equals')
 equalsButton.addEventListener('click', () => {
     calculate();
 })
+
+//When clear button is pressed
+let clearButton = document.querySelector('#clear')
+clearButton.addEventListener('click', () => {
+    display = "";
+    displayHistory = '';
+    result = '';
+    funcProcess = '';
+    screen.innerHTML = display;
+    history.innerHTML = displayHistory + ' ' + funcProcess;
+})
+
 
 function calculate() {
     if (funcProcess == '*'){
