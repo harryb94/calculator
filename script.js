@@ -25,10 +25,9 @@ dot.addEventListener('click', () => {
     if (display.includes('.'))
     {return}
     else{
-    display.push(dot.className);
+    display += dot.className;
     console.log(display);
-    console.log(display.join(''));
-    screen.innerHTML = display.join('');
+    screen.innerHTML = display;
     }
 });
 
@@ -60,26 +59,26 @@ equalsButton.addEventListener('click', () => {
 
 function calculate() {
     if (funcProcess == '*'){
-        result = (parseInt(display) * parseInt(displayHistory));
+        result = (parseFloat(display) * parseFloat(displayHistory)).toFixed(2);
         screen.innerHTML = result;
         display = result;
         }
 
     if (funcProcess == '+'){
-        result = (parseInt(display) + parseInt(displayHistory));
+        result = (parseFloat(display) + parseFloat(displayHistory)).toFixed(2);
         screen.innerHTML = result;
         display = result;
         console.log('result ' + result);
     }
 
     if (funcProcess == '/'){
-        result = parseInt(displayHistory) / (parseInt(display));
+        result = parseFloat(displayHistory) / (parseFloat(display)).toFixed(2);
         screen.innerHTML = result;
         display = result;
     }
 
     if (funcProcess == '-'){
-        result = (parseInt(displayHistory) - parseInt(display));
+        result = (parseFloat(displayHistory) - parseFloat(display)).toFixed(2);
         screen.innerHTML = result;    
         display = result; 
     }
