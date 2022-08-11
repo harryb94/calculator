@@ -9,11 +9,16 @@ let result;
 let numbers = document.querySelectorAll('#number');
 numbers.forEach((number) => { 
 number.addEventListener('click', () => {
+        if (display.length > 8){
+            return;
+        }
+        else {
         display += number.className;
         console.log(display);
         console.log('display ' + display);
         console.log('history ' + displayHistory);
         screen.innerHTML = display;
+        }
     })
 });
 
@@ -21,7 +26,12 @@ number.addEventListener('click', () => {
 let dot = document.querySelector('#dot');
 dot.addEventListener('click', () => {
     if (display.includes('.'))
-    {return}
+    {return;}
+
+    if (display.length > 8){
+        return;
+    }
+
     else{
     display += dot.className;
     console.log(display);
