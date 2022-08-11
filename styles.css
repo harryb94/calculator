@@ -26,6 +26,7 @@ header {
     padding: 0px;
     padding: 10px;
     background-color: slategray;
+    box-shadow: 5px 5px;
 
 }
 
@@ -44,6 +45,7 @@ header {
     font-size: xx-large;
     flex-direction: column;
     background-color: silver;
+    box-shadow: 1px 1px;
 }
 
 #history {
@@ -87,6 +89,7 @@ button {
     border: solid;
     border-width: 1px;
     border-radius: 20px;
+    box-shadow: 1px 1px;
 }
 
 #functions button {
