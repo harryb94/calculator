@@ -85,11 +85,12 @@ header {
 button {
     align-items: center;
     justify-content: center;
-    font-size: xx-large;
+    font-size: 80px;
     border: solid;
     border-width: 1px;
     border-radius: 20px;
     box-shadow: 1px 1px;
+    background-color: silver;
 }
 
 #functions button {
