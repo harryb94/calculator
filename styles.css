@@ -22,9 +22,10 @@ header {
     align-items: center;
     border: solid;
     border-width: 1px;
-    border-radius: 4px;
+    border-radius: 20px;
     padding: 0px;
     padding: 10px;
+    background-color: slategray;
 
 }
 
@@ -42,6 +43,7 @@ header {
     align-items: flex-end;
     font-size: xx-large;
     flex-direction: column;
+    background-color: silver;
 }
 
 #history {
@@ -74,7 +76,7 @@ button {
     font-size: xx-large;
     border: solid;
     border-width: 1px;
-    border-radius: 4px;
+    border-radius: 20px;
 }
 
 #functions button {

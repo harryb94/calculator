@@ -36,7 +36,7 @@ dot.addEventListener('click', () => {
 let functionButton = document.querySelectorAll('#function');
 functionButton.forEach((func) => {
     func.addEventListener('click', () => {
-        funcProcess = func.className;   
+        funcProcess = func.className; 
         funcPress(display,displayHistory);
 
     })
@@ -69,6 +69,7 @@ function calculate() {
         result = (parseInt(display) + parseInt(displayHistory));
         screen.innerHTML = result;
         display = result;
+        console.log('result ' + result);
     }
 
     if (funcProcess == '/'){
