@@ -48,6 +48,16 @@ header {
 
 #history {
     font-size: medium;
+    height: 20px;
+    width: 400px;
+    text-align: right;
+}
+
+#currentDisplay {
+    font-size: xx-large;
+    height: 30px;
+    width: 400px;
+    text-align: right;
 }
 
 #buttons{
