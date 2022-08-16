@@ -19,6 +19,57 @@ window.addEventListener('keydown', function(e) {
         display += e.key;
         updateDisplay();}
     }
+
+    //when '.' key is pressed
+    if (e.key == '.'){
+        if (display.includes('.'))
+        {return;}
+    
+        if (display.length > 8){
+            return;
+        }
+    
+        else{
+        display += e.key;
+        updateDisplay();
+        }
+    }
+
+    //when '+' key is pressed
+    if (e.key == '+'){
+        if (funcProcess == ''){
+            funcProcess = e.key; 
+        }
+        funcPress();
+        funcProcess = e.key; 
+    }
+
+     //when '-' key is pressed
+     if (e.key == '-'){
+        if (funcProcess == ''){
+            funcProcess = e.key; 
+        }
+        funcPress();
+        funcProcess = e.key; 
+    }   
+
+    //when '*' key is pressed
+    if (e.key == '*'){
+        if (funcProcess == ''){
+            funcProcess = e.key; 
+        }
+        funcPress();
+        funcProcess = e.key; 
+    }    
+
+    //when '+' key is pressed
+    if (e.key == '/'){
+        if (funcProcess == ''){
+            funcProcess = e.key; 
+        }
+        funcPress();
+        funcProcess = e.key; 
+    }   
     
 })
 
@@ -67,7 +118,7 @@ functionButton.forEach((func) => {
         if (funcProcess == ''){
             funcProcess = func.className; 
         }
-        funcPress(display,displayHistory);
+        funcPress();
         funcProcess = func.className; 
     })
 })
