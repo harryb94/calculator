@@ -8,7 +8,7 @@ let keypress;
 
 //when key on keyboard is pressed
 window.addEventListener('keydown', function(e) {
-    console.log(parseInt(e.key));
+    console.log(e.key);
     console.log(typeof parseInt(e.key));
 
     //when a number key is pressed
@@ -18,6 +18,11 @@ window.addEventListener('keydown', function(e) {
         else{
         display += e.key;
         updateDisplay();}
+    }
+
+    //when '=' or 'enter key is pressed
+    if (e.key == '=' || e.key == 'Enter'){
+     calculate();
     }
 
     //when '.' key is pressed
