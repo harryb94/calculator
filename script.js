@@ -112,7 +112,7 @@ dot.addEventListener('click', () => {
 
     else{
     display += dot.className;
-    screen.innerHTML = display;
+    updateDisplay()
     }
 });
 
@@ -137,7 +137,7 @@ function funcPress() {
             displayHistory = display;
             history.innerHTML = displayHistory + ' ' + funcProcess;
             display = '';
-            screen.innerHTML = display;
+            updateDisplay();
             }
 }
 
@@ -165,7 +165,7 @@ function clear(){
     displayHistory = '';
     result = '';
     funcProcess = '';
-    screen.innerHTML = display;
+    updateDisplay();
     history.innerHTML = displayHistory + ' ' + funcProcess;
 }
 
@@ -173,18 +173,17 @@ function calculate() {
     if (funcProcess == '*'){
         result = (parseFloat(display) * parseFloat(displayHistory)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
+        history.innerHTML = displayHistory + ' ' + funcProcess + ' ' + display;
         displayHistory = result;
-        history.innerHTML = displayHistory;
         display = '';
-        screen.innerHTML = display;}
+    }
 
     if (funcProcess == '+'){
         result = (parseFloat(display) + parseFloat(displayHistory)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
+        history.innerHTML = displayHistory + ' ' + funcProcess + ' ' + display;
         displayHistory = result;
-        history.innerHTML = displayHistory;
         display = '';
-        screen.innerHTML = display;
     }
 
     if (funcProcess == '/'){
@@ -195,19 +194,19 @@ function calculate() {
         else {
         result = parseFloat(displayHistory) / (parseFloat(display)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
+        history.innerHTML = displayHistory + ' ' + funcProcess + ' ' + display;
         displayHistory = result;
-        history.innerHTML = displayHistory;
         display = '';
-        screen.innerHTML = display;}
+    }
     }
 
     if (funcProcess == '-'){
         result = (parseFloat(displayHistory) - parseFloat(display)).toFixed(2).replace(/[.,]00$/, "");
-        screen.innerHTML = result;    
+        screen.innerHTML = result;
+        history.innerHTML = displayHistory + ' ' + funcProcess + ' ' + display;
         displayHistory = result;
-        history.innerHTML = displayHistory;
         display = '';
-        screen.innerHTML = display;    }
+    }
     }
 
 
