@@ -19,6 +19,12 @@ window.addEventListener('keydown', function(e) {
     }
 
     //when '=' or 'enter key is pressed
+    if (e.key == 'Backspace'){
+        display = display.slice(0,-1);
+        updateDisplay();
+    }
+
+    //when '=' or 'enter key is pressed
     if (e.key == '=' || e.key == 'Enter'){
      calculate();
     }
@@ -151,7 +157,7 @@ clearButton.addEventListener('click', () => {
 let deleteButton = document.querySelector('#delete')
 deleteButton.addEventListener('click', () => {
     display = display.slice(0,-1);
-    screen.innerHTML = display;
+    updateDisplay();
 })
 
 function clear(){
