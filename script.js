@@ -4,9 +4,32 @@ let displayHistory = '';
 let history = document.getElementById('history');
 let result;
 let funcProcess = '';
+let keypress;
 
+//when key on keyboard is pressed
+window.addEventListener('keydown', function(e) {
+    console.log(parseInt(e.key));
+    console.log(typeof parseInt(e.key));
 
-//When a number is pressed
+    //when a number key is pressed
+    if (parseInt(e.key) >= 0 && parseInt(e.key) <10){
+        if (display.length > 8){
+            return;}
+        else{
+        display += e.key;
+        updateDisplay();}
+    }
+    
+})
+
+function updateDisplay() {
+    console.log(display);
+    console.log('display ' + display);
+    console.log('history ' + displayHistory);
+    screen.innerHTML = display;
+}
+
+//When a number is clicked
 let numbers = document.querySelectorAll('#number');
 numbers.forEach((number) => { 
 number.addEventListener('click', () => {
@@ -15,15 +38,12 @@ number.addEventListener('click', () => {
         }
         else {
         display += number.className;
-        console.log(display);
-        console.log('display ' + display);
-        console.log('history ' + displayHistory);
-        screen.innerHTML = display;
+            updateDisplay();
         }
     })
 });
 
-//When the 'dot' or 'decimal' button is pressed
+//When the 'dot' or 'decimal' button is clicked
 let dot = document.querySelector('#dot');
 dot.addEventListener('click', () => {
     if (display.includes('.'))
@@ -40,17 +60,15 @@ dot.addEventListener('click', () => {
     }
 });
 
-//When a function button is pressed eg. + x / -     
+//When a function button is clicked eg. + x / -     
 let functionButton = document.querySelectorAll('#function');
 functionButton.forEach((func) => {
     func.addEventListener('click', () => {
         if (funcProcess == ''){
             funcProcess = func.className; 
         }
-        
         funcPress(display,displayHistory);
         funcProcess = func.className; 
-
     })
 })
 
@@ -70,19 +88,19 @@ function funcPress() {
             }
 }
 
-//When equals button is pressed
+//When equals button is clicked
 let equalsButton = document.querySelector('#equals')
 equalsButton.addEventListener('click', () => {
     calculate();
 })
 
-//When clear button is pressed
+//When clear button is clicked
 let clearButton = document.querySelector('#clear')
 clearButton.addEventListener('click', () => {
     clear();
 })
 
-//When delete button is pressed
+//When delete button is clicked
 let deleteButton = document.querySelector('#delete')
 deleteButton.addEventListener('click', () => {
     display = display.slice(0,-1);
@@ -105,7 +123,7 @@ function calculate() {
         displayHistory = result;
         history.innerHTML = displayHistory;
         display = '';
-        screen.innerHTML = display;        }
+        screen.innerHTML = display;}
 
     if (funcProcess == '+'){
         result = (parseFloat(display) + parseFloat(displayHistory)).toFixed(2).replace(/[.,]00$/, "");
@@ -127,7 +145,7 @@ function calculate() {
         displayHistory = result;
         history.innerHTML = displayHistory;
         display = '';
-        screen.innerHTML = display;        }
+        screen.innerHTML = display;}
     }
 
     if (funcProcess == '-'){
