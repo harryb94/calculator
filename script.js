@@ -8,8 +8,6 @@ let keypress;
 
 //when key on keyboard is pressed
 window.addEventListener('keydown', function(e) {
-    console.log(e.key);
-    console.log(typeof parseInt(e.key));
 
     //when a number key is pressed
     if (parseInt(e.key) >= 0 && parseInt(e.key) <10){
@@ -79,9 +77,6 @@ window.addEventListener('keydown', function(e) {
 })
 
 function updateDisplay() {
-    console.log(display);
-    console.log('display ' + display);
-    console.log('history ' + displayHistory);
     screen.innerHTML = display;
 }
 
@@ -111,7 +106,6 @@ dot.addEventListener('click', () => {
 
     else{
     display += dot.className;
-    console.log(display);
     screen.innerHTML = display;
     }
 });
@@ -134,13 +128,10 @@ function funcPress() {
             }
             
             else{
-            console.log('display ' + display);
             displayHistory = display;
-            console.log('history ' + displayHistory);
             history.innerHTML = displayHistory + ' ' + funcProcess;
             display = '';
             screen.innerHTML = display;
-            console.log(funcProcess);
             }
 }
 
