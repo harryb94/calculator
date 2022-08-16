@@ -3,6 +3,7 @@ let screen = document.getElementById('currentDisplay');
 let displayHistory = '';
 let history = document.getElementById('history');
 let result;
+let funcProcess = '';
 
 
 //When a number is pressed
@@ -43,13 +44,22 @@ dot.addEventListener('click', () => {
 let functionButton = document.querySelectorAll('#function');
 functionButton.forEach((func) => {
     func.addEventListener('click', () => {
-        funcProcess = func.className; 
+        if (funcProcess == ''){
+            funcProcess = func.className; 
+        }
+        
         funcPress(display,displayHistory);
+        funcProcess = func.className; 
 
     })
 })
 
 function funcPress() {
+            if (display != '' && displayHistory != ''){
+                calculate();
+            }
+            
+            else{
             console.log('display ' + display);
             displayHistory = display;
             console.log('history ' + displayHistory);
@@ -57,6 +67,7 @@ function funcPress() {
             display = '';
             screen.innerHTML = display;
             console.log(funcProcess);
+            }
 }
 
 //When equals button is pressed
@@ -91,14 +102,18 @@ function calculate() {
     if (funcProcess == '*'){
         result = (parseFloat(display) * parseFloat(displayHistory)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
-        display = result;
-        }
+        displayHistory = result;
+        history.innerHTML = displayHistory;
+        display = '';
+        screen.innerHTML = display;        }
 
     if (funcProcess == '+'){
         result = (parseFloat(display) + parseFloat(displayHistory)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
-        display = result;
-        console.log('result ' + result);
+        displayHistory = result;
+        history.innerHTML = displayHistory;
+        display = '';
+        screen.innerHTML = display;
     }
 
     if (funcProcess == '/'){
@@ -109,15 +124,19 @@ function calculate() {
         else {
         result = parseFloat(displayHistory) / (parseFloat(display)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;
-        display = result;
-        }
+        displayHistory = result;
+        history.innerHTML = displayHistory;
+        display = '';
+        screen.innerHTML = display;        }
     }
 
     if (funcProcess == '-'){
         result = (parseFloat(displayHistory) - parseFloat(display)).toFixed(2).replace(/[.,]00$/, "");
         screen.innerHTML = result;    
-        display = result; 
-    }
+        displayHistory = result;
+        history.innerHTML = displayHistory;
+        display = '';
+        screen.innerHTML = display;    }
     }
 
 
